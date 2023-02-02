@@ -1,0 +1,27 @@
+{
+    "manifest_version": 3,
+    "name": "YouTube Duration Sort",
+    "version": "1.0.0",
+    "description": "Allows you to sort channel videos by duration.",
+    "homepage_url": "https://github.com/tuunit/youtube-duration-sort",
+    "icons": {
+        "128": "images/icon.png"
+    },
+    "permissions": [
+        "tabs",
+        "scripting"
+    ],
+    "host_permissions": [
+        "*://*.youtube.com/*"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://www.youtube.com/**"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ]
+}
