@@ -23,10 +23,12 @@
         {
             "run_at": "document_start",
             "matches": [
-                "https://www.youtube.com/*"
+                "https://*.youtube.com/*"
             ],
             "js": [
-                "content.js"
+                "scripts/main.js",
+                "scripts/button.js",
+                "scripts/sorting.js"
             ]
         }
     ]

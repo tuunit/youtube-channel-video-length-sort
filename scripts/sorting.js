@@ -1,12 +1,3 @@
-let state = true;
-const button = document.createElement("button");
-button.setAttribute("id", "duration-sort");
-button.innerText = "Duration (A)";
-button.onclick = function () {
-    if (state) ascending();
-    else descending();
-}
-
 function ascending() {
     let channelVideos = document.querySelectorAll("ytd-two-column-browse-results-renderer[page-subtype='channels'] span.ytd-thumbnail-overlay-time-status-renderer");
 
@@ -51,8 +42,8 @@ function ascending() {
         if (c) i.appendChild(c);
     }
 
-    state = false;
-    button.innerText = "Duration (D)";
+    sortDirection = false;
+    document.getElementById("video-length-sort").innerText = "Video length ↓";
 }
 
 function descending() {
@@ -98,22 +89,6 @@ function descending() {
 
         if (c) i.appendChild(c);
     }
-    state = true;
-    button.innerText = "Duration (A)";
+    sortDirection = true;
+    document.getElementById("video-length-sort").innerText = "Video length ↑";
 }
-
-function run() {
-    let url = window.location.href;
-    if (url.substring(url.lastIndexOf('/') + 1) != "videos") {
-        return;
-    }
-
-    if (document.querySelector("#duration-sort")) {
-        return;
-    }
-
-    const chips = document.querySelector("#scroll-container");
-    chips.appendChild(button);
-}
-
-document.addEventListener("DOMSubtreeModified", run);
